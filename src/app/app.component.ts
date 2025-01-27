@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { TareasService } from './services/tareas.service';
 
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, FormsModule],
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
   
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit{
   
   
   ngOnInit(): void {
-    this.listaTareas = this._tareasService.getTareas(); 
+    this.listaTareas = this._tareasService.getTareas();
   }
 
   agregarTarea(){

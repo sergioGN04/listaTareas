@@ -23,4 +23,4 @@ export class TareasService {
     localStorage.setItem(this.localStorageKey, JSON.stringify(tareas));
   }
   
-} 
+}
