@@ -4,23 +4,32 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TareasService {
-
   private localStorageKey = 'listaTareas';
 
-  getTareas():string[] {
-    return JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
+  private isLocalStorageAvailable(): boolean {
+    return typeof localStorage !== 'undefined';
+  }
+
+  getTareas(): string[] {
+    if (this.isLocalStorageAvailable()) {
+      return JSON.parse(localStorage.getItem(this.localStorageKey) as string) || [];
+    }
+    return [];
   }
 
   agregarTarea(tarea: string) {
-    const tareas = this.getTareas();
-    tareas.push(tarea);
-    localStorage.setItem(this.localStorageKey, JSON.stringify(tareas));
+    if (this.isLocalStorageAvailable()) {
+      const tareas = this.getTareas();
+      tareas.push(tarea);
+      localStorage.setItem(this.localStorageKey, JSON.stringify(tareas));
+    }
   }
 
   eliminarTarea(index: number) {
-    const tareas = this.getTareas();
-    tareas.splice(index, 1);
-    localStorage.setItem(this.localStorageKey, JSON.stringify(tareas));
+    if (this.isLocalStorageAvailable()) {
+      const tareas = this.getTareas();
+      tareas.splice(index, 1);
+      localStorage.setItem(this.localStorageKey, JSON.stringify(tareas));
+    }
   }
-  
 }
