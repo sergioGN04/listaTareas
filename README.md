@@ -1,3 +1,2 @@
-
-# ANGULAR: Aplicación LISTA de TAREAS
-
+# listaTareas
+Sergio Gonzalez Noria
