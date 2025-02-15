@@ -2,26 +2,26 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TareasService } from './services/tareas.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [CommonModule, FormsModule],
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule, HeaderComponent, FooterComponent],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
   listaTareas: string[] = [];
   nuevaTarea = '';
   error = '';
-  fechaActual = '';
 
   private _tareasService = inject(TareasService);
 
   ngOnInit(): void {
     this.obtenerTareas();
-    this.actualizarFecha();
   }
 
   private obtenerTareas(): void {
@@ -43,9 +43,5 @@ export class AppComponent implements OnInit {
   eliminarTarea(index: number): void {
     this._tareasService.eliminarTarea(index);
     this.obtenerTareas();
-  }
-
-  private actualizarFecha(): void {
-    this.fechaActual = new Date().toLocaleDateString('es-ES');
   }
 }

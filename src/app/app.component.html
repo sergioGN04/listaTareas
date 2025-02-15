@@ -1,23 +1,6 @@
 <div class="d-flex flex-column min-vh-100">
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Lista de Tareas</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tareas</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Header -->
+  <app-header></app-header>
 
   <!-- Contenido principal -->
   <main class="container flex-grow-1 py-4">
@@ -52,7 +35,5 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-light text-center py-3 mt-auto shadow-sm">
-    <p class="mb-0">© {{ fechaActual }} - Lista de Tareas</p>
-  </footer>
+  <app-footer></app-footer>
 </div>
